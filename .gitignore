@@ -1,0 +1,37 @@
+# Backend patterns
+srijan-backend/target/
+srijan-backend/.mvn/wrapper/maven-wrapper.jar
+srijan-backend/.idea/
+srijan-backend/*.iws
+srijan-backend/*.iml
+srijan-backend/*.ipr
+srijan-backend/build/
+
+# Frontend patterns
+srijan-frontend/node_modules/
+srijan-frontend/dist/
+srijan-frontend/dist-ssr/
+srijan-frontend/*.local
+srijan-frontend/.vscode/*
+!srijan-frontend/.vscode/extensions.json
+srijan-frontend/.idea/
+srijan-frontend/.vercel/
+srijan-frontend/.vite/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Other backups/temporary files
+.git_backup/
+.git_old/
+.git_nested_backup/
