@@ -1,4 +1,2 @@
 package com.srijan.srijan_backend.auth;
-
-public class AuthRequest {
-}
+public record AuthRequest(String email, String password) {}

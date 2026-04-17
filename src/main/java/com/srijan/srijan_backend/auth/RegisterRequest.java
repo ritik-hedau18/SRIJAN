@@ -1,4 +1,2 @@
 package com.srijan.srijan_backend.auth;
-
-public class RegisterRequest {
-}
+public record RegisterRequest(String name, String email, String password) {}

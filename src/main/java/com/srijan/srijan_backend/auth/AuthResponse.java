@@ -1,4 +1,2 @@
 package com.srijan.srijan_backend.auth;
-
-public class AuthResponse {
-}
+public record AuthResponse(String token, String name) {}
