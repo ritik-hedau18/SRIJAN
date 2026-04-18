@@ -61,7 +61,7 @@ export default function ChatPanel({
       {downloadUrl && (
         <div className="px-4 pb-2">
           <a
-            href={`http://localhost:8080${downloadUrl}`}
+             href={`${import.meta.env.VITE_API_URL || "http://localhost:8080"}${downloadUrl}`}
             download="srijan-project.zip"
             className="block w-full text-center bg-green-700 hover:bg-green-600 text-white py-2 rounded-lg text-sm font-semibold transition-colors"
           >
