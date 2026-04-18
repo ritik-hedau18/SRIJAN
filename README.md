@@ -1,4 +1,4 @@
-# ⚡ SRIJAN — AI-Powered Spring Boot Code Generator
+# ⚡ SRIJAN (Spring AI : Real-time Intelligent Java App Narrator) — AI-Powered Spring Boot Code Generator
 
 > Describe your feature in plain English. SRIJAN generates production-ready Spring Boot code — instantly.
 
@@ -11,7 +11,11 @@
 [![Render](https://img.shields.io/badge/Backend-Render-46E3B7?style=flat&logo=render&logoColor=white)](https://srijan-backend-0w0d.onrender.com)
 
 ---
+## Architecture
 
+![SRIJAN Architecture](docs/srijan-architecture.svg)
+
+---
 ## 🔗 Live Demo
 
 | Service  | URL |
@@ -23,7 +27,7 @@
 
 ## 📌 What is SRIJAN?
 
-**SRIJAN** (which means *creation* in Sanskrit) stands for **Spring AI : Real-time Intelligent Java App Narrator**.
+**SRIJAN** (which means *creation* in Sanskrit)
 
 SRIJAN is an AI-powered Spring Boot code generator that lets you describe your application in plain English and instantly get working, production-ready Java code. Built on top of Spring AI and powered by Groq's LLaMA model, SRIJAN bridges the gap between your ideas and implementation — no boilerplate, no guesswork.
 
@@ -72,96 +76,6 @@ The generated files are rendered inside a Monaco Editor and can be downloaded as
 
 ---
 
-## 🏗️ Architecture Overview
-
-```
-User (Browser)
-    │
-    ▼
-React Frontend (Netlify)
-    │  JWT Bearer Token
-    ▼
-Spring Boot REST API (Render)
-    ├── AuthController   → Register / Login
-    └── AiController     → Generate code, Download ZIP
-            │
-            ├── Spring AI (ChatClient + InMemoryChatMemory)
-            │         └── Groq API (llama-3.3-70b-versatile)
-            │
-            ├── CodeParser     → Parses === FILE: path === markers
-            ├── ProjectGeneratorService → Writes files to disk, creates ZIP
-            └── ChatSessionRepository  → Saves sessions to PostgreSQL
-```
-
----
-
-## 📁 Project Structure
-
-### Backend (`srijan-backend`)
-```
-src/main/java/com/srijan/srijan_backend/
-│
-├── ai/
-│   ├── AiController.java          # POST /api/ai/generate, GET /api/ai/download/{sessionId}
-│   ├── AiService.java             # Core logic: session management, AI call, file parsing, ZIP
-│   └── PromptTemplates.java       # System prompt for the LLM (SRIJAN persona)
-│
-├── auth/
-│   ├── AuthController.java        # POST /api/auth/register, POST /api/auth/login
-│   ├── AuthService.java           # Registration and login logic
-│   ├── AuthRequest.java           # Login DTO
-│   ├── AuthResponse.java          # Response with JWT token
-│   └── RegisterRequest.java       # Registration DTO
-│
-├── config/
-│   ├── SecurityConfig.java        # Spring Security filter chain, CORS, stateless session
-│   ├── GlobalExceptionHandler.java # Centralized error handling
-│   └── HealthController.java      # GET /health (public endpoint for uptime checks)
-│
-├── generator/
-│   ├── CodeParser.java            # Parses AI response into file path + content pairs
-│   ├── ProjectGeneratorService.java # Writes files to temp disk, zips them
-│   ├── ParsedFile.java            # Record: filePath + content
-│   └── GenerationResponse.java    # Response DTO: sessionId, downloadUrl, file list
-│
-├── security/
-│   ├── JwtFilter.java             # JWT request filter (reads token, sets SecurityContext)
-│   ├── JwtUtil.java               # Token generation and validation
-│   └── CustomUserDetailsService.java # Loads user from DB for Spring Security
-│
-├── session/
-│   ├── ChatSession.java           # Entity: sessionId, userEmail, title, createdAt
-│   └── ChatSessionRepository.java # JPA repository
-│
-└── user/
-    ├── User.java                  # Entity: id, name, email, password (BCrypt)
-    └── UserRepository.java        # JPA repository
-```
-
-### Frontend (`srijan-frontend`)
-```
-src/
-├── api/
-│   └── srijanApi.js          # Axios instance with JWT interceptor + API calls
-│
-├── components/
-│   ├── ChatPanel.jsx          # Left panel: message history, prompt input, download button
-│   ├── CodeEditor.jsx         # Right panel: Monaco Editor with file tabs
-│   └── Navbar.jsx             # Top navigation bar
-│
-├── context/
-│   └── AuthContext.jsx        # Global auth state: user, login, logout
-│
-├── pages/
-│   ├── BuilderPage.jsx        # Main page: chat + code editor layout
-│   ├── LoginPage.jsx          # Login form
-│   └── RegisterPage.jsx       # Register form
-│
-└── App.jsx                    # Routes: /login, /register, /builder (protected)
-```
-
----
-
 ## 🚀 Getting Started (Local Setup)
 
 ### Prerequisites
@@ -177,7 +91,7 @@ src/
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/ritik-hedau18/srijan-backend.git
+git clone https://github.com/ritik-hedau18/SRIJAN
 cd srijan-backend
 ```
 
