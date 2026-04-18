@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.*;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -17,8 +19,16 @@ public class AiController {
     private final AiService aiService;
 
     @PostMapping("/generate")
-    public ResponseEntity<GenerationResponse> generate(@RequestBody GenerateRequest request) {
-        GenerationResponse response = aiService.generate(request.prompt());
+    public ResponseEntity<GenerationResponse> generate(
+            @RequestBody GenerateRequest request,
+            @AuthenticationPrincipal UserDetails userDetails) {
+
+        GenerationResponse response = aiService.generate(
+                request.prompt(),
+                request.sessionId(),
+                userDetails.getUsername()
+        );
+
         return ResponseEntity.ok(response);
     }
 
@@ -42,5 +52,5 @@ public class AiController {
                 .body(resource);
     }
 
-    public record GenerateRequest(String prompt) {}
+    public record GenerateRequest(String prompt, String sessionId) {}
 }

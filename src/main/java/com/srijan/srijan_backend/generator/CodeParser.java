@@ -21,8 +21,14 @@ public class CodeParser {
             String filePath = matcher.group(1).trim();
             String content = matcher.group(2).trim();
 
-            if (!filePath.isBlank() && !content.isBlank()) {
-                files.add(new ParsedFile(filePath, content));
+            // Remove markdown code fences like ```java or ```
+            String cleanContent = content
+                    .replaceAll("^```\\w*\\n?", "")
+                    .replaceAll("```$", "")
+                    .trim();
+
+            if (!filePath.isBlank() && !cleanContent.isBlank()) {
+                files.add(new ParsedFile(filePath, cleanContent));
             }
         }
 
