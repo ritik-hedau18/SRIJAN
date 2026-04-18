@@ -23,9 +23,11 @@
 
 ## 📌 What is SRIJAN?
 
-**SRIJAN** (which means *creation* in Sanskrit) is a full-stack, AI-powered code generator built for Java developers. You type a natural language prompt like *"Create a REST API for a book store with CRUD operations"* — and SRIJAN generates complete, structured Spring Boot code files including Controller, Service, Repository, and Entity layers.
+**SRIJAN** (which means *creation* in Sanskrit) stands for **Spring AI : Real-time Intelligent Java App Narrator**.
 
-The generated files are rendered inside a Monaco Editor (the same editor used in VS Code) and can be downloaded as a ready-to-use ZIP file.
+SRIJAN is an AI-powered Spring Boot code generator that lets you describe your application in plain English and instantly get working, production-ready Java code. Built on top of Spring AI and powered by Groq's LLaMA model, SRIJAN bridges the gap between your ideas and implementation — no boilerplate, no guesswork.
+
+The generated files are rendered inside a Monaco Editor and can be downloaded as a ready-to-use ZIP file.
 
 ---
 
@@ -47,7 +49,7 @@ The generated files are rendered inside a Monaco Editor (the same editor used in
 | Technology | Purpose |
 |------------|---------|
 | Java 17 | Core language |
-| Spring Boot 3.4.5 | Backend framework |
+| Spring Boot  | Backend framework |
 | Spring AI 1.0.0-M6 | AI integration (OpenAI-compatible) |
 | Groq API (`llama-3.3-70b`) | LLM for code generation |
 | Spring Security 6 | Authentication & authorization |
