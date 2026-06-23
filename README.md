@@ -231,7 +231,7 @@ Location: India
 | Project | Description |
 |---|---|
 | [NEXUS](https://github.com/ritik-hedau18/NEXUS) | AI-powered Multi-member RAG Workspace Intelligence Platform using Spring AI & Qdrant |
-| [TRACE](https://github.com/ritik-hedau18/TRACE-Transaction-Risk-and-Anomaly-Classification-Engine) | Real-time fraud detection system using Spring Boot microservices + Kafka |
+| [TRACE](https://github.com/ritik-hedau18/TRACE) | Real-time fraud detection system using Spring Boot microservices + Kafka |
 
 ---
 
